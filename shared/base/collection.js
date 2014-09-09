@@ -103,7 +103,7 @@ BaseCollection = Super.extend({
     // Each time new models are fetched, store the params used.
     options.data = options.data || {};
     _.defaults(options.data, this.defaultParams || {});
-    this.params = options.data;
+    this.params = _.clone(options.data);
     return Super.prototype.fetch.apply(this, arguments);
   },
 
